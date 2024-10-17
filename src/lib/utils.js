@@ -44,7 +44,7 @@ export const forecast = (latitude, longitude, callback) => {
         return;
       }
 
-      const dataRes = `${data.current.weather_descriptions[0]}. It is currently ${data.current.temperature} degrees out and it feels like ${data.current.feelslike} degrees.`;
+      const dataRes = `${data.current.weather_descriptions[0]}. It is currently ${data.current.temperature} degrees out and it feels like ${data.current.feelslike} degrees. <br><br> 🧴 <b>UV INDEX: ${data.current.uv_index}</b>`;
       callback(undefined, dataRes);
     })
     .catch((error) => {
