@@ -1,0 +1,54 @@
+body {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0px 16px;
+  font-family: arial;
+  color: #333;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  margin-top: 16px;
+  margin-bottom: 48px;
+}
+
+header a {
+  color: #888;
+  margin-right: 16px;
+  text-decoration: none;
+}
+
+.main-content {
+  flex-grow: 1;
+}
+
+h1 {
+  font-size: 64px;
+  letter-spacing: 0.1rem;
+  margin-bottom: 16px;
+}
+
+input {
+  padding: 7px;
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 7px;
+  cursor: pointer;
+  border: 2px solid #efefef;
+  color: #757575;
+}
+
+.resulsTag .icon {
+  font-size: 30px;
+}
+
+footer {
+  color: #888;
+  border-top: 1px solid #eee;
+  margin-top: 16px;
+  padding: 16px 0;
+}
