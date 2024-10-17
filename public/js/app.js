@@ -21,11 +21,28 @@ const getWeather = async (location) => {
         return (result.innerHTML = `<p>Oh oh!..${data.err}</p>`);
       }
 
-      const icon = data.response.split(".")[0];
+      const icon = data.response.split(".")[0].toLowerCase();
 
       result.innerHTML = `<p>🌍 ${data.location}</p>`;
-      result.innerHTML += `<span>${
-        icon === "Rain" ? "☔️" : icon === "Sunny" ? "☀️" : "⛅️"
-      }</span> <span>${data.response}</span> `;
+      result.innerHTML += `<span>${weatherIcon(icon)}</span> <span>${
+        data.response
+      }</span> `;
     });
+};
+
+const weatherIcon = (icon) => {
+  return icon.includes("storm") || icon.includes("thunderstorm")
+    ? "⚡️"
+    : icon.includes("rain") || icon.includes("drizzle")
+    ? "☔️"
+    : icon.includes("snow") || icon.includes("blizzard")
+    ? "❄️"
+    : icon.includes("sunny") || icon.includes("clear")
+    ? "☀️"
+    : icon.includes("overcast") ||
+      icon.includes("mist") ||
+      icon.includes("fog") ||
+      icon.includes("haze")
+    ? "☁️"
+    : "⛅️";
 };
