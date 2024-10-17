@@ -14,20 +14,18 @@ weatherForm.addEventListener("submit", (e) => {
 
 const getWeather = async (location) => {
   result.innerHTML = "<p class='icon'>Loading... 🐛</p>";
-  await axios
-    .get(`http://localhost:3000/weather?address=${location}`)
-    .then(({ data }) => {
-      if (data.error) {
-        return (result.innerHTML = `<p>Oh oh!..${data.error} 🌈✨</p>`);
-      }
+  await axios.get(`/weather?address=${location}`).then(({ data }) => {
+    if (data.error) {
+      return (result.innerHTML = `<p>Oh oh!..${data.error} 🌈✨</p>`);
+    }
 
-      const icon = data.response.split(".")[0].toLowerCase();
+    const icon = data.response.split(".")[0].toLowerCase();
 
-      result.innerHTML = `<p>🌍 ${data.location}</p>`;
-      result.innerHTML += `<span>${weatherIcon(icon)}</span> <span>${
-        data.response
-      }</span> `;
-    });
+    result.innerHTML = `<p>🌍 ${data.location}</p>`;
+    result.innerHTML += `<span>${weatherIcon(icon)}</span> <span>${
+      data.response
+    }</span> `;
+  });
 };
 
 const weatherIcon = (icon) => {
