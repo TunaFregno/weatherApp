@@ -17,8 +17,8 @@ const getWeather = async (location) => {
   await axios
     .get(`http://localhost:3000/weather?address=${location}`)
     .then(({ data }) => {
-      if (data.err) {
-        return (result.innerHTML = `<p>Oh oh!..${data.err}</p>`);
+      if (data.error) {
+        return (result.innerHTML = `<p>Oh oh!..${data.error} 🌈✨</p>`);
       }
 
       const icon = data.response.split(".")[0].toLowerCase();

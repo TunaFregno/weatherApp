@@ -52,9 +52,9 @@ app.get("/weather", (req, res) => {
     return res.send({ error: "Please provide an address." });
   }
 
-  geocoder(command, (err, { latitude, longitude, location } = {}) => {
-    if (err) {
-      return res.send({ err });
+  geocoder(command, (error, { latitude, longitude, location } = {}) => {
+    if (error) {
+      return res.send({ error });
     }
 
     forecast(latitude, longitude, (error, response) => {

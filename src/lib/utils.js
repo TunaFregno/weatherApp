@@ -33,7 +33,7 @@ export const geocoder = (address, callback) => {
 export const forecast = (latitude, longitude, callback) => {
   axios
     .get(
-      `https://api.weatherstack.com/current?access_key=192c9ec2c1c286768ef815dd6d7cef44&query=${latitude},${longitude}`
+      `https://api.weatherstack.com/current?access_key=0bacf051a56a7a7a315585f4141ceafa&query=${latitude},${longitude}`
     )
     .then(({ data }) => {
       if (data.error) {
